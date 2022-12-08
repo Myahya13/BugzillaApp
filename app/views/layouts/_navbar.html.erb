@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+<div class="container">
+<%= link_to "Bugzilla App", home_path, id: "logo" %>
+<nav>
+<ul class="nav navbar-nav navbar-right">
+<li><%= link_to "Home", home_path %></li>
+<li><%= link_to "Help", help_path %></li>
+<% if user_signed_in? %>
+    <li><%= link_to "Create Bug",   new_bug_path %></li>
+     <li><%= link_to "Show Bugs",   bugs_path %></li>
+     <% if current_user.role == "manager" %>
+      <li><%= link_to "Show Users",   users_path %></li>
+      <% end %>
+
+    <li><%= link_to "Sign out",    destroy_user_session_path , method: :delete%></li> 
+    
+<% else %>
+    <li><%= link_to "Sign in", new_user_session_path %></li>
+<% end %>
+</ul>
+</nav>
+</div>
+
+</header>

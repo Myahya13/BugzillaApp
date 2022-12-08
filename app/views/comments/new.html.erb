@@ -1,0 +1,6 @@
+<h2>Add a Comment </h2>
+<%= form_with url: comments_path, method: :post  do |f| %>
+    <%= f.hidden_field :bug_id, value: @bug_id %>
+    <%= f.text_area :text, placeholder: "Add comment" %>
+    <%= f.submit class: "btn btn-primary" %>
+<% end %>

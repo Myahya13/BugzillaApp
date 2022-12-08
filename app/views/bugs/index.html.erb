@@ -1,0 +1,50 @@
+<div class="container" >
+ <h1> Welcome to the Bugs Page</h1>
+  <br/>
+  <br/>
+  <br/>
+    <table class="table">
+    <tbody>
+    <thead class="thead-light">
+    <% @bugs.each do |bug| %>
+    
+    <tr>
+        
+         <td><h3> Title: </h3>  <%= bug.title%></td>
+         <td><h3>  Description: </h3> <%= bug.description %></td>
+         <td><h3>  Priority: </h3>  <%= bug.priority %> </td>
+         <td><h3>  Deadline Days: </h3> <%= bug.Completiontime %></td>
+          <td><h3>   Status: </h3> <%= bug.status %></td>
+        <td>
+          <div>
+          <% bug.comments.any? && bug.comments.each do |comment| %>
+          <%= comment.text %>
+          <% end %>
+        </div>
+        </td>
+         
+      <th> <%= link_to "DELETE Bug", bug_path(bug.id), method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %></th>
+        <th> <%= link_to "Edit Bug",  edit_bug_path(bug.id),  class: "btn btn-primary" %> </th>
+          <% if current_user.role == "manager" %>
+          <th> <%= link_to "Assign to",  assign_bug_path(bug.id),    class: "btn btn-primary" %> </th>
+          <% end %>
+          
+         <th> <%= link_to "Add Comment",  "/comments/new?id=#{bug.id}",  class: "btn btn-success" %> </th>
+        
+         <% end %>
+    </tr>
+    </table>
+   
+    
+</div>
+ 
+
+
+
+
+
+
+    
+
+
+

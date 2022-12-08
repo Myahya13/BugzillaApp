@@ -1,0 +1,21 @@
+<div class="container">
+		<h1>Update the bug</h1>
+		<%= form_for @bug do |f| %>
+<div class="form-contol">
+    <%=f.label :title,'Title: ', :class=>"col-form-label col-md-1" %>
+    <%= f.text_field :title, :class => 'col-md-11 form-control', :required => true %>
+</div>
+<br/>
+  <div class="">
+    <%=f.label :description , 'Description: ' %>
+    <%=f.text_area :description , :class => "form-control" %>
+  </div>
+
+ <br/>
+ <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+
+  <%end%>
+</div>
+

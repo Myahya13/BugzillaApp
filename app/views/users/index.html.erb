@@ -1,0 +1,23 @@
+<h1>All Users</h1>
+<div class="container" >
+ 
+  <br/>
+  <br/>
+  <br/>
+ 
+<table class="table">
+    <tbody>
+        <thead class="thead-light">
+          <% @users.each do |user| %>
+          
+            <tr>
+              <td> <h3>Name: </h3> <%= user.name %></td>
+              <td> <h3>Email: </h3>  <%= user.email %></td>
+              <td> <h3>Role: </h3> <%= user.role %> </td>
+              <td><%= link_to 'Change Role', edit_user_path(user.id), class: "btn btn-primary" %></td>
+              
+                <% end %>
+            </tr>
+        </thead>      
+    </tbody>
+</table>

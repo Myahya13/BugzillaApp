@@ -1,0 +1,11 @@
+<h1>Assign bug to user</h1>
+    <%= form_with url:  assign_users_bug_path(@bug.id) ,method: :get, local: true do |form| %>
+       <div class="assign-field">
+       
+        <%= form.select :assign_users, options_for_select(@users), {} , { class: "form-control " }  %>
+        </div>
+        <br/>
+         <div class="actions">
+        <%= form.submit "Submit" %>
+       </div>
+  <% end %>

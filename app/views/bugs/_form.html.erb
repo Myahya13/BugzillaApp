@@ -1,0 +1,29 @@
+<%= form_for @bug do |f| %>
+<div class="form-contol">
+    <%=f.label :title,'Title: ', :class=>"col-form-label col-md-1" %>
+    <%= f.text_field :title, :class => 'col-md-11 form-control', :required => true %>
+</div>
+<br/>
+  <div class="">
+    <%=f.label :description , 'Description: ' %>
+    <%=f.text_area :description , :class => "form-control" %>
+  </div>
+
+ <br/>
+  
+  <div class="priority-field">
+  <%= f.select :priority, options_for_select([["Select Priority", ""],["High", "High"], ["Medium", "Medium"], ["Low", "Low"]]) %> 
+  </div>
+  <br/>
+  
+  <div class="time-field">
+  <%= f.select :Completiontime, options_for_select([["Select Completiontime", ""],["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]]) %> 
+  </div>
+  <br/>
+
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+
+  <%end%>
+
