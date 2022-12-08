@@ -122,7 +122,7 @@ class BugsController <ApplicationController
       if @bug.present?
         authorize @bug
       else
-        authorize Bug
+        flash[:danger] = "Something went wrong, please try again!"
       end
      
     end
